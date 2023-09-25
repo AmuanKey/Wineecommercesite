@@ -1,47 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Vino Vista - Your Wine Destination</title>
-    <link rel="stylesheet" href="style3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="index.html">Vino Vista</a>
+
+<body >
+<div class="background">
+    <div class=" container  ">
+        <!--! nav-bar  -->
+        <nav class="navbar navbar-expand-lg fixed-top mt-0 ">
+            <div class="container-fluid bg-dark ">
+                <a class=" text-decoration-none text-light brand medium-text me-5" href="#">Vinno Vista</a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon  "></span>
+                  </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class=" way  text-light small-text me-5 text-decoration-none" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="way text-light small-text me-5 text-decoration-none" href="#">Shop</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="way text-light small-text me-5 text-decoration-none " href="#" >Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="way text-light small-text me-5 text-decoration-none " href="#" >Contact</a>
+                        </li>
+
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 bg-dark text-light" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light " type="submit">Search</button>
+                    </form>
+                </div>
             </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="wine-club.html">Wine Club</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="signin.html">Sign In</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
         </nav>
-    </header>
+        <!--! nav-bar  -->
 
-    <section class="hero">
-        <h1>Welcome to Vino Vista</h1>
-        <p>Your premier destination for fine wines.</p>
-        <a href="shop.html" class="cta-button">Shop Now</a>
-    </section>
 
-    <section class="featured-products">
-        <!-- Featured wine products go here -->
-    </section>
+        <div class="d-flex flex-column-reverse mb-3 flex-md-row">
+            <section class="sections first-section   d-flex flex-column justify-content-center ">
+                
+                    <div class="title my-5  ps-5">
+                        <span class="big-text animate__animated animate__fadeInUpBig">Helping you to</span>
+                        <div class="medium-text animate__animated animate__fadeInUpBig">find your perfect bottle</div>
+                    </div>
+                    <div class="body my-3 ps-5">
+                              <p class="quotes small-text animate__animated animate__fadeInUpBig">"Wine is constant proof that God loves us and loves to see us happy." - Benjamin Franklin</p>
+                    </div>
+                    <div class="btn  d-flex ps-5">
+                        <button class="btn btn-warning animate__animated animate__fadeInUpBig">Shop Now</button>
 
-    <!-- Other sections (Shop, Wine Club, About Us, Blog, Sign In, Contact Us) can be added here -->
-
-    <footer>
-        <div class="footer-logo">
-            <a href="index.html">Vino Vista</a>
+                    </div>
+                    
+                
+                
+             
+            </section>
+            <section class="sections second-section   d-flex align-items-center ">
+                <img class="wine-circle-img animate__animated animate__bounceInDown animate__delay-0.6s" src="images/wine-circle.png" alt="">
+            </section>
         </div>
-        <div class="footer-contact">
-            <p>Contact us: info@vinovista.com</p>
-        </div>
-    </footer>
+        <footer>
+            <center class="footer-text">Made with Passion by Amuan <font color="red">&#10084;</font> </center>
+        </footer>
+
+    </div>
+</div>
+
 </body>
+
 </html>
