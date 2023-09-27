@@ -1,3 +1,20 @@
+<?php
+error_reporting(1);
+include('./config/config.php');
+$name = $_POST['name'];
+$email = $_POST['email'];
+$mes = $_POST['message'];
+
+$query = "INSERT INTO feedback(name,email,message) VALUES ('$name','$email','$mes')";
+if(mysql_query($query)){
+    $alert = "<div class='alert  mx-auto mt-2 title'><font  color='white'><center> Your Message is sent Successfully. <span class='fa-solid fa-x x' style='color: #fff000; cursor:pointer;  '></span>  </center>  </font> </div>";
+}else{
+    $alert = "<font color='white'><center>error</center></font>";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" style="background-color: #020106;">
 <head>
@@ -7,12 +24,12 @@
     <link rel="stylesheet" type="text/css" href="CSS/contact.css">
     <link rel="stylesheet" type="text/css" href="CSS/test.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
-
+  <script defer src="https://kit.fontawesome.com/2d8375e017.js" crossorigin="anonymous"></script>
 </head>
 <body>
          <!--! nav-bar  -->
@@ -25,7 +42,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class=" way  text-light small-text me-5 text-decoration-none" aria-current="page" href="index.html">Home</a>
+                            <a class=" way  text-light small-text me-5 text-decoration-none" aria-current="page" href="home.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="way text-light small-text me-5 text-decoration-none" href="#">Shop</a>
@@ -35,7 +52,7 @@
                             <a class="way text-light small-text me-5 text-decoration-none " href="#" >Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="way text-light small-text me-5 text-decoration-none " href="contact.html" >Contact</a>
+                            <a class="way text-light small-text me-5 text-decoration-none " href="contact.php" >Contact</a>
                         </li>
 
                     </ul>
@@ -49,15 +66,15 @@
         <!--! nav-bar  -->
 
         <div class="body">
+       
  
-    
             <header class="header">
                 <h1></h1>
             </header>
             <div class="container d-flex flex-column-reverse flex-lg-row">
                 <section class="contact-form animate__animated animate__bounceInDown animate__slow">
                     <h2 class="title">Send us a message</h2>
-                    <form class="form">
+                    <form class="form" method="post">
                         <label class="label title" for="name">Name:</label>
                         <input class="input bg-black form-control text-light" type="text" id="name" name="name" required>
                         
@@ -67,8 +84,11 @@
                         <label class="label title" for="message">Message:</label>
                         <textarea class="textarea bg-black text-light form-control" id="message" name="message" rows="4" required></textarea>
                         
-                        <button type="submit " class="btn btn-outline-light">Send</button>
+                        <button type="submit "  class="btn btn-outline-light">Send</button>
+                     
                     </form>
+   <?php echo $alert; ?>
+
                 </section>
                 <section class="contact-info ">
                     <h2 class="title animate__animated animate__bounceInUp animate__slow">Contact Information</h2>
@@ -86,5 +106,13 @@
                 <center class="footer-text">Made with Passion by Amuan <font color="red">	&#128293;</font> </center>
             </footer>
         </div>
+        <script>
+            let x = document.querySelector(".x");
+            let alert = document.querySelector('.alert');
+            x.addEventListener("click", ()=>{
+                alert.remove();
+            });
+        </script>
+
 </body>
 </html>

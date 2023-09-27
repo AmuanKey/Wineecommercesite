@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+.font{
+    font-family: 'Pacifico', cursive;
+    color: white !important;
+}
+.body{
+    background-image: url('../images/admin-wine.png');
+    background-size: cover;
+    height: 100%;
+}
+.cover{
+    min-height: 100vh;
+    background-color: rgba(20, 20, 20,0.9);
+}
+.nav{
+    background-color: #06010f;
+    
+}
+.nav-link{
+    margin: 0 20px !important;
+    width:100px;
+    height: 40px;
+    text-align: center;
+    /* background-color: aquamarine !important; */
+}
+.nav-link:hover{
+    background-color: #F1EFEF;
+    border-radius: 20px;
+    color: #AA77FF !important;
+    
+}
+.table-header{
+    background-color: #AA77FF !important;
+}

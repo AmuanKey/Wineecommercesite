@@ -37,7 +37,7 @@
                             <a class="way text-light small-text me-5 text-decoration-none " href="#" >Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="way text-light small-text me-5 text-decoration-none " href="contact.html" >Contact</a>
+                            <a class="way text-light small-text me-5 text-decoration-none " href="contact.php" >Contact</a>
                         </li>
 
                     </ul>
