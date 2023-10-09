@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+.font{
+    font-family: 'Pacifico', cursive;
+    color: white !important;
+}
+body{
+    background-image: url('../admin-img/admin-wine.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+.holder{
+    min-height: 80px;
+}
+.cover{
+    position: fixed;
+    background-color: rgba(20, 20, 20,0.9);
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+.nav{
+    background-color: #06010f;
+    
+}
+.nav-link{
+    margin: 0 20px !important;
+    /* width:100px; */
+    height: 40px;
+    text-align: center;
+    /* background-color: aquamarine !important; */
+}
+.nav-link:hover{
+    background-color: #F1EFEF;
+    border-radius: 20px;
+    color: #AA77FF !important;
+    
+}
+
+table{
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    border-collapse: collapse;
+    
+    
+}
+
+td,th{
+    padding: 10px;
+    border: 1px solid black;
+
+}
+.white{
+    color: #AA77FF !important;
+}
+.blue{
+    color:skyblue !important;
+}
+.red{
+    color:rgb(218, 100, 100) !important;
+}
+.yellow{
+    color:yellowgreen !important;
+}
+.pink{
+    color: plum !important;
+}
+
+@media only screen and (max-width: 768px){
+    table .table-header{
+        display: none ;
+    }
+    table tbody, table tr, table td{
+    display: block;
+    width: 100%;
+   }
+   table tr{
+    margin-bottom: 15px;
+   }
+   table td{
+    /* text-align: right; */
+    padding-left: 50%;
+    position: relative;
+    background-color: transparent;
+   }
+   table td::before{
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+   }
+
+}

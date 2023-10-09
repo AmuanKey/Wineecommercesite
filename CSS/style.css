@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url('../images/grapewllpp.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+.holder{
+    min-height: 100px;
+  }
+.background{
+    background-color: rgba(13, 13, 14, 0.9);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+    
+}
+.title,.quotes,.brand {
+    font-family: 'Pacifico', cursive !important;
+    color: antiquewhite !important;
+  }
+
+  .title:hover{
+    color: black !important;
+  }
+  
+  .way{
+    transition: 0.3s;
+    font-family: 'Lobster', cursive !important;
+
+  }
+  .way:hover{
+    border: 1px solid white;
+    padding: 4px;
+    border-radius: 20px;
+  }
+  .big-text{
+    font-size: 5rem;
+  }
+  .medium-text{
+    font-size: 3rem;
+  }
+  .small-text{
+    font-size: 1.5rem;
+  }

@@ -1,12 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap');
-.body {
-    font-family: Arial, sans-serif;
-  
-    background-color: rgba(13, 13, 14, 0.9);
-    height: 100%;
-}
+
 
 .header {
     background-color: #333;
@@ -15,11 +10,11 @@
     padding: 20px;
 }
 
-.container {
+/* .container {
     display: flex;
     justify-content: space-between;
     margin: 20px;
-}
+} */
 .title,.quotes , .brand{
     font-family: 'Pacifico', cursive;
     color: antiquewhite;
@@ -50,6 +45,9 @@
 @media only screen and (max-width: 992px){
     section{
         text-align: center;
+    }
+    .all-container{
+        margin-top: 100px;
     }
     .contact-form, .contact-info {
         padding: 0;

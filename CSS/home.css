@@ -1,0 +1,114 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: url('../images/grapewllpp.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+}
+.title,.quotes , .brand{
+  font-family: 'Pacifico', cursive;
+  color: antiquewhite;
+}
+
+.way{
+  transition: 0.3s;
+}
+.way:hover{
+  border: 1px solid white;
+  padding: 4px;
+  border-radius: 20px;
+}
+.big-text{
+  font-size: 5rem;
+}
+.medium-text{
+  font-size: 3rem;
+}
+.small-text{
+  font-size: 1.5rem;
+}
+
+.sections{
+  height: 95% !important;
+  width: 50%;
+  /* background-color: aqua; */
+}
+.container{
+    height: 80% !important;
+}
+.wine-circle-img{
+  
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 10px solid rgb(102, 68, 68);
+}
+.footer-text{
+  color: white;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+@media only screen and (max-width: 1200px){
+ .big-text{
+  font-size: 4rem;
+ }
+ .medium-text{
+  font-size: 2rem;
+ }
+ .small-text{
+  font-size: 1rem;
+ }
+}
+@media only screen and (max-width: 992px){
+  .big-text{
+      font-size: 3rem;
+     }
+     .medium-text{
+      font-size: 1.5rem;
+     }
+     .small-text{
+      font-size: 14px;
+     }  
+}
+@media only screen and (max-width: 768px){
+  .sections{
+      width: 100%;
+      justify-content: center;
+  }
+  .box{
+    /* background-color: rebeccapurple; */
+    position: absolute;
+    top: 10%;
+  }
+  footer{
+    position: absolute;
+    /* background-color: red; */
+    width: 100%;
+    bottom: 0;    
+    
+}
+
+  .background{
+    justify-content: flex-start;
+  }
+ 
+  .wine-circle-img{
+    width: 80%;
+    height: 80%;
+  }
+
+  .first-section{
+      height: 50%;
+      padding-top: 0;
+      margin-top: 0;
+  }
+}

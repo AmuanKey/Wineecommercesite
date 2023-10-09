@@ -1,0 +1,9 @@
+.container{
+    border: 1px solid white;
+    border-radius: 15px;
+}
+.box{
+    border: 1px solid white !important;
+    border-radius: 15px;
+    
+}

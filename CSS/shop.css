@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap');
+
+
+  .card{
+    border: 1px solid white !important;
+    background-color: transparent !important;
+    padding: 10px;
+    transition: .3s;
+  }
+  .red{
+    background-color: red !important;
+  }
+  .card:hover{
+    box-shadow: 0 0 20px white !important; 
+    cursor: grab;
+    transform: scale(1.05);
+  }
+
+  .box{
+    border: 1px solid white;
+  }
+  .circle{
+  
+    /* width: 380px;
+    height: 380px; */
+    border-radius: 50%;
+    border: 1px solid white;
+  }
+  @media only screen and (max-width: 768px){
+    .inside{
+        margin: auto !important;
+    }
+  }

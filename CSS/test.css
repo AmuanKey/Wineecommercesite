@@ -10,6 +10,7 @@
 body{
     background-image: url('../images/grapewllpp.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
     
 }
 .title,.quotes , .brand{
@@ -37,7 +38,7 @@ body{
 .background{
     background-color: rgba(13, 13, 14, 0.9);
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 .sections{
     height: 100vh;
