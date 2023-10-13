@@ -1,62 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap');
-
-
-.header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-/* .container {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
-} */
-.title,.quotes , .brand{
-    font-family: 'Pacifico', cursive;
-    color: antiquewhite;
-}
-
-.contact-form, .contact-info {
-    flex: 1;
-    padding: 20px;
-    margin: 10px;
-}
-
-
-.form {
-    display: flex;
-    flex-direction: column;
-}
-.bg-black{
-    background-color: #333;
-}
-.label, .input, .textarea {
-    margin: 5px 0;
-}
+body{
+    background-image: url('../images/contact-bg.jpg') !important;
+   }
 
 
 
-
-
-@media only screen and (max-width: 992px){
-    section{
-        text-align: center;
-    }
-    .all-container{
-        margin-top: 100px;
-    }
-    .contact-form, .contact-info {
-        padding: 0;
-        margin: 0;
-    }
-    .label, .input, .textarea {
-        margin: 0;
-    }
-    .img{
-        width: 100%;
-    }
-}

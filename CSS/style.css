@@ -22,13 +22,23 @@ body{
   z-index: -2;
     
 }
-.title,.quotes,.brand {
+.brand {
     font-family: 'Pacifico', cursive !important;
     color: antiquewhite !important;
   }
-
-  .title:hover{
+  .brand:hover{
     color: black !important;
+  }
+  .quotes{
+    font-family: 'Pacifico', cursive !important;
+    color: lightgreen !important;
+  }
+
+
+  .title {
+    color: rgb(216, 48, 160) !important;
+    font-family: 'Pacifico', cursive !important;
+
   }
   
   .way{
@@ -41,12 +51,4 @@ body{
     padding: 4px;
     border-radius: 20px;
   }
-  .big-text{
-    font-size: 5rem;
-  }
-  .medium-text{
-    font-size: 3rem;
-  }
-  .small-text{
-    font-size: 1.5rem;
-  }
+ 

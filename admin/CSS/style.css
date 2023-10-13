@@ -38,3 +38,7 @@ body{
     color: #AA77FF !important;
     
 }
+
+:root {
+    --animate-delay: 3s !important;
+  }

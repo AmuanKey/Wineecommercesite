@@ -9,80 +9,56 @@ $query = "SELECT * FROM productupload";
 $result = mysql_query($query);
 
 
-
+include('header.php');
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
-    <link rel='stylesheet' href="CSS/style.css">
     <link rel="stylesheet" href="CSS/shop.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
 
-</head>
 
-<body>
-    <nav class="navbar navbar-expand-lg fixed-top mt-0 ">
-        <div class="container-fluid bg-dark ">
-            <a class=" text-decoration-none text-light brand medium-text me-5" href="#">Vinno Vista</a>
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon  "></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class=" way  text-light small-text me-5 text-decoration-none" aria-current="page"
-                            href="home.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="way text-light small-text me-5 text-decoration-none" href="shop.php">Shop</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="way text-light small-text me-5 text-decoration-none " href="#">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="way text-light small-text me-5 text-decoration-none " href="contact.php">Contact</a>
-                    </li>
-
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 bg-dark text-light" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <button class="btn btn-outline-light " type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-    <div class="background "></div>
-        <div class=" holder "></div>
-        <div class="box row mx-auto p-0 container">
+        <div class="box row mx-auto p-0 container rounded">
         <?php  while ($arr = mysql_fetch_array($result)) {
     $i = $arr['images'];
 
  ?>
-    <div class=' col-10 inside col-md-4 col-lg-3 my-3 '>
-<div class="card w-100  " style="height: 450px;  ">
-                <img src="./admin/uploadedImages/<?php echo $i; ?>" style="height:50%; width:100;" class="circle card-img-top  " alt="wine-pic">
+    <div class=' col-10 inside col-md-4 col-lg-3 '>
+<div class="card w-100 animate__animated animate__backInDown  my-3 " style="height: 450px;  ">
+
+                <img src="./admin/uploadedImages/<?php echo $i; ?>" style="height:50%; width:100;" class=" shape card-img-top  " alt="wine-pic">
                 <div class="card-body text-center   h-50">
-                    <h5 class="card-title quotes "><?php echo $arr['name']; ?></h5>
+                    <h5 class="card-title quotes "><font color='#E13661'><?php echo $arr['name']; ?></font></h5>
                     <p class="card-text  text-light  mb-0  " style="height:50%; overflow:hidden; font-family: 'Acme', sans-serif; "><?php echo $arr['info']; ?>
                     </p>
                     <div class=''>
-                    <h4 class=' quotes '><?php echo $arr['price'];?> Ks</h4>
+                    <h4 class=' quotes '><font color='#2AB613'><?php echo $arr['price'];?> Ks </font></h4>
+                    <div class='  '>
                         <a href="order.php?id=<?php echo $arr['p_id']; ?>" class=" w-50 btn btn-outline-light title ">Buy</a>
+                          
+                        <?php
+                            $Ldata="SELECT * FROM likes";
+                            $Lquery = mysql_query($Ldata);
+                            $Larr = array();
+                            while($Lrow = mysql_fetch_array($Lquery)){
+                             $Lname = $Lrow['name'];
+                             array_push($Larr,$Lname);
+                            }
+                            $Lcount = array_count_values($Larr);
+                           
+                        ?>
+                
+                       
+                         <form method='post' class=' w-25  position-absolute end-0 bottom-0' action='like.php'>
+                                  <input type="hidden" name='img' value='<?php echo $arr['images']; ?>'>
+                                  <input type="hidden" name='name' value='<?php echo $arr['name']; ?>'>
+
+                                  <button type="submit" class="btn btn-transparent text-danger"><b><?php echo $Lcount[$arr['name']]; ?></b>
+                                  <i class=" heart bi bi-suit-heart<?php echo $arr['likes']; ?> fs-3"></i> 
+                                  </button>
+                         </form>
+                    </div>
+                       
+
+
 
                     </div >
                 </div>
@@ -93,8 +69,9 @@ $result = mysql_query($query);
            
 <?php }?>
         </div>
+<!-- modal  -->
 
-       
+       <!-- modal  -->
     
 
 </body>

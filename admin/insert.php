@@ -1,4 +1,11 @@
 <?php
+session_start(1);
+if($_SESSION['admin']!=1){
+    header('location:index.php');
+}else{
+?>
+
+<?php
 error_reporting(1);
 // $con=mysql_connect("localhost","root","") or die(mysql_error());
 // // select database
@@ -15,10 +22,11 @@ $query = "INSERT INTO `wine`.`productupload` (
     `name` ,
     `info` ,
     `price` ,
-    `images`
+    `images`,
+    `likes`
     )
     VALUES (
-    NULL , '$name', '$info', '$price', '$img'
+    NULL , '$name', '$info', '$price', '$img',''
     );";
 
   if($name == "" || $info == "" || $price == "" || $img == ""){
@@ -40,11 +48,12 @@ $query = "INSERT INTO `wine`.`productupload` (
 
 ?>
   <?php include('templates/header.php'); ?>
+  <link rel="stylesheet" href="CSS/style.css">
   <link rel="stylesheet" href="CSS/insert.css">
 
 
 
-  <div class="box row  ">
+  <div class="box row animate__animated animate__backInDown ">
     <div class="col-10 col-md-6 mx-auto">
       <form class="text-light form p-4 rounded" method="post"  enctype="multipart/form-data">
         <h2 class="text-center font"><font color='#AA77FF'>Upload your Products</font></h2>
@@ -66,7 +75,7 @@ $query = "INSERT INTO `wine`.`productupload` (
         </div>
 
         <div class="mb-3 ">
-          <label class="form-check-label" for="img">Your image should be squared size (eg: 2x2 3x3 4x4)</label>
+          <label class="form-check-label" for="img">Your image should be landscape</label>
 
           <input type="file" class="form-control bg-dark text-light" id="img" name="img">
         </div>
@@ -80,4 +89,6 @@ $query = "INSERT INTO `wine`.`productupload` (
   </div>
 
 
-  <?php include('templates/footer.php'); ?>
+  <?php include('templates/footer.php'); 
+  
+}?>

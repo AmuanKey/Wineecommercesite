@@ -4,19 +4,18 @@ $con=mysql_connect("localhost","root","") or die(mysql_error());
 mysql_select_db("wine",$con);
 // Create table
 
-$sql="CREATE TABLE orderlist 
+$sql="CREATE TABLE productupload 
 (
 p_id int auto_increment primary key,
-cusname char(50) not null,
-phone varchar(50) not null,
-address varchar(255) not null,
-pname varchar(100) not null,
-price bigint not null,
-o_id varchar(500) not null
+name char(50) not null,
+info varchar(1000) not null,
+price varchar(255) not null,
+images varchar(255) not null,
+likes varchar(255)not null
 )";
 if (mysql_query($sql))
 {
-echo "Table empInfo created successfully";
+echo "Your table is created successfully";
 }
 else
 {

@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url('../admin/admin-img/wpp-bg2.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    z-index: -2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.layer{
+    background-color: rgba(19, 18, 18,0.6);
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    z-index: -1;
+}
+#container {
+    background: rgba(10, 10, 10, 0.2);
+    box-shadow: 0 0 5px rgba(192, 191, 191,0.5);
+    width: 30rem;
+    height: 20rem;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+header {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 3rem;
+    height: 3rem;
+    background: rgba(25, 25, 26, 0.7);
+    font-size: 1.4rem;
+    color: #d3d3d3;
+}
+
+fieldset {
+    border: 0;
+    text-align: center;
+}
+#submit{
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.a{
+height: 35px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.a,input[type="submit"] {
+    background: rgba(235, 30, 54, 1);
+    width: 200px;
+    color: white;
+    cursor: pointer;
+}
+
+input {
+    background: transparent;
+    border: 0;
+    border-left: 4px solid;
+    border-color: #FF0000;
+    padding: 10px;
+    color: white;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: 0;
+    background: rgba(43, 42, 42, 0.9);
+    border-radius: 1.2rem;
+    border-color: transparent;
+}
+
+::placeholder {
+    color: #d3d3d3;
+}
+
+
+@media  (max-width: 568px) {
+    #container {
+        width: 80%;
+        height: 20rem;
+    }
+    .a,input[type='submit']{
+        width: 100px;
+    }
+}

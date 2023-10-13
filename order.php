@@ -16,9 +16,11 @@ $address = $_POST['address'];
 $ord_name = $_POST['oname'];
 $price = $_POST['price'];
 $ord_no = rand(100,999);
+$photo = $arr['images'];
 $_SESSION['img'] = $arr['images'];
 $_SESSION['name'] = $cus_name;
 $_SESSION['address'] = $address;
+
 
 $query = "INSERT INTO `wine`.`orderlist` (
     `ol_id` ,
@@ -28,10 +30,11 @@ $query = "INSERT INTO `wine`.`orderlist` (
     `pname`,
     `price`,
     `o_no`,
-    `order_time`
+    `order_time`,
+    `photo`
     )
     VALUES (
-    NULL , '$cus_name', '$phone', '$address','$ord_name','$price','$ord_no',NOW()
+    NULL , '$cus_name', '$phone', '$address','$ord_name','$price','$ord_no',NOW(),'$photo'
     );";
  if($cus_name == "" || $phone == "" || $address == ""){
     $mes = "";
@@ -43,59 +46,13 @@ $query = "INSERT INTO `wine`.`orderlist` (
               $mes ="bad";
                 }
         }
+
+include('header.php');
 ?>
+<link rel="stylesheet" href="CSS/order.css">
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order</title>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/order.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
 
-<body>
-    <nav class="navbar navbar-expand-lg fixed-top mt-0 ">
-        <div class="container-fluid bg-dark ">
-            <a class=" text-decoration-none text-light brand medium-text me-5" href="#">Vinno Vista</a>
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon  "></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class=" way  text-light small-text me-5 text-decoration-none" aria-current="page"
-                            href="home.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="way text-light small-text me-5 text-decoration-none" href="shop.php">Shop</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="way text-light small-text me-5 text-decoration-none " href="#">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="way text-light small-text me-5 text-decoration-none " href="contact.php">Contact</a>
-                    </li>
-
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 bg-dark text-light" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <button class="btn btn-outline-light " type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-    <div class="background "></div>
-    <div class=" holder "></div>
     <div class="container-fluid text-light">
         <div class="my-3">
             <h3 class="text-center">Ordering From <?php echo $mes; ?> </h3>
@@ -103,9 +60,9 @@ $query = "INSERT INTO `wine`.`orderlist` (
 
     <form method="post">
         <div class="">
-            <div class="row w-75 mx-auto ">
+            <div class="row w-75 mx-auto  ">
 
-                <div class="box row col-md-8 mx-2 my-2  p-3">
+                <div class="box row col-md-8 mx-2 my-2   p-3">
 
                     <div class=" col-md-8 ps-3 ">
                         <h2>
@@ -127,6 +84,7 @@ $query = "INSERT INTO `wine`.`orderlist` (
 
 
                     </div>
+                  
 
                 </div>
                 <div class="box  col-md-3 mx-2 my-2  p-3">
@@ -146,7 +104,7 @@ $query = "INSERT INTO `wine`.`orderlist` (
 
 
 
-        <div class="mt-2">
+        <div class="mt-2 ">
             <p class="  text-center  w-100 ">
                 <input type='submit' value='Order Now' class="btn btn-outline-light w-50 mx-auto " />
 

@@ -22,12 +22,16 @@
   .box{
     border: 1px solid white;
   }
-  .circle{
+  .heart:hover{
+    transform: scale(1.1) !important;
+  }
+
+  .shape{
   
-    /* width: 380px;
-    height: 380px; */
-    border-radius: 50%;
+  
+    border-radius: 0 0 50% 50%;
     border: 1px solid white;
+    padding: 2px !important;
   }
   @media only screen and (max-width: 768px){
     .inside{

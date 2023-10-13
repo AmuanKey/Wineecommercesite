@@ -4,7 +4,7 @@
     color: white !important;
 }
 body{
-    background-image: url('../admin-img/admin-wine.png');
+    background-image: url('../admin-img/wpp-wine-1.jpg') !important;
     background-size: cover;
     background-attachment: fixed;
 }
