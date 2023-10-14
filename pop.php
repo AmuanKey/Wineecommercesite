@@ -11,7 +11,7 @@ include('header.php');
         <h1 class="title text-info fs-4 text-center" >Log in to Your Account</h1>
       </div>
       <div class="modal-body">
-        <form method='post' class=' w-75 mx-auto'>
+        <form method='post' action='login.php' class=' w-75 mx-auto'>
             <label for="name" class='form-label '>Username</label>
             <input name='username' class='form-control my-1 text-light bg-dark' type="text">
             <label for="password" class='form-label'>Password</label>

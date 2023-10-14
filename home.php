@@ -17,7 +17,7 @@ if($_SESSION['login'] == 1){
                 <section class="sections first-section col-md-7    d-flex flex-column justify-content-center ">
                     
                         <div class="title  my-3  ">
-                            <span  class="fs-1 title my-1 animate__animated animate__fadeInUpBig"><font color='#963CA8'>Welcome <?php echo $name; ?></font></span>
+                            <span  class="fs-1 title my-1 animate__animated animate__fadeInUpBig"><font color='#963CA8'>Welcome</font><font color='yellowgreen'> <?php echo $name; ?></font></span>
                             <div class="fs-2 title my-1 animate__animated animate__fadeInUpBig"><font color='lightblue'>Ejoy your perfect bottle</font></div>
                         </div>
                         <div class="body my-2 ">

@@ -16,7 +16,7 @@ $name = $_POST['name'];
 $info = $_POST['info'];
 $price = $_POST['price'];
 $img = $_FILES['img']['name'];
-echo $name.$info.$price.$img;
+// echo $name.$info.$price.$img;
 $query = "INSERT INTO `wine`.`productupload` (
     `p_id` ,
     `name` ,
