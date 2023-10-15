@@ -5,8 +5,8 @@ include('./config/config.php');
 $id = $_REQUEST['id'];
 
 $data = "SELECT * FROM productupload WHERE p_id = '$id'";
-$result = mysql_query($data);
-$arr = mysql_fetch_array($result);
+$oresult =  $mysqli -> query($data);
+$arr = $oresult -> fetch_array(MYSQLI_ASSOC);
 
 
 //form data
@@ -22,7 +22,7 @@ $_SESSION['name'] = $cus_name;
 $_SESSION['address'] = $address;
 
 
-$query = "INSERT INTO `wine`.`orderlist` (
+$query = "INSERT INTO `orderlist` (
     `ol_id` ,
     `cusname` ,
     `phone` ,
@@ -39,7 +39,7 @@ $query = "INSERT INTO `wine`.`orderlist` (
  if($cus_name == "" || $phone == "" || $address == ""){
     $mes = "";
   }else{
-           if(mysql_query($query)){
+           if($mysqli -> query($query)){
                $mes = "success";
                header("location:ordersent.php?o_no=$ord_no");
             }else{

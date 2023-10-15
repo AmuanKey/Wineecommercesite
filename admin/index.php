@@ -3,23 +3,23 @@ error_reporting(1);
 include('../config/config.php');
 session_start();
 $data="SELECT * FROM admin";
-$result = mysql_query($data);
-$row = mysql_fetch_array($result);
-$adminName =  $row[0];
-$password = $row[1];
+$result = $mysqli -> query($data);
+$row = $result  -> fetch_array(MYSQLI_ASSOC);
+$adminName =  $row['Name'];
+$password = $row['Password'];
 
 $name = $_POST['name'];
 $pass = $_POST['password'];
 
-
+if(isset($_POST['btn'])){
 if($adminName == $name && $password == $pass){
   $mes = ' GOOD';
   $_SESSION['admin'] = 1;
   header('location:home.php');
 }else {
-   $mes = ' bad';
+   $mes = 'Password/Username Incorrect ';
 }
-
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,12 +58,15 @@ if($adminName == $name && $password == $pass){
                             <input name='name'  type="text" class=" animate__animated animate__bounceInUp animate__fast form-control bg-dark text-light my-5">
                             <input name='password' type="password" class=" animate__animated animate__bounceInUp   form-control bg-dark text-light my-5">
                             <div class="text-center">
-                                <input type="submit" class="  animate__animated animate__bounceInUp animate__slow  btn btn-outline-info w-50  ">
+                                <input type="submit" value='Enter' name='btn' class="  animate__animated animate__bounceInUp animate__slow  btn btn-outline-info w-50  ">
 
                             </div>
 
                         </form>
+                     <h5 class='text-danger text-center mt-3' ><?php echo $mes; ?></h5>
+
                      </div>
+
            </div>
     </div>
 </body>

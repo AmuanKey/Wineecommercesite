@@ -1,5 +1,6 @@
 <?php
-session_start(1);
+error_reporting(1);
+session_start();
 if($_SESSION['admin']!=1){
     header('location:index.php');
 }else{
@@ -17,7 +18,7 @@ $info = $_POST['info'];
 $price = $_POST['price'];
 $img = $_FILES['img']['name'];
 // echo $name.$info.$price.$img;
-$query = "INSERT INTO `wine`.`productupload` (
+$query = "INSERT INTO `productupload` (
     `p_id` ,
     `name` ,
     `info` ,
@@ -34,7 +35,7 @@ $query = "INSERT INTO `wine`.`productupload` (
   }
   else{
 
-    if(mysql_query($query)){
+    if($mysqli -> query($query)){
       $message = "Uploading Success";
 	   mkdir("uploadedImages/");
 		move_uploaded_file($_FILES['img']['tmp_name'],"uploadedImages/".$_FILES['img']['name']);	

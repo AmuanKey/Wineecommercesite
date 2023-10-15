@@ -1,5 +1,6 @@
 <?php
-session_start(1);
+error_reporting(1);
+session_start();
 if($_SESSION['admin']!=1){
     header('location:index.php');
 }else{
@@ -28,18 +29,18 @@ include('../config/config.php');
         <tbody>
         <?php
 $data="SELECT * FROM feedback";
-$val=mysql_query($data);
+$val= $mysqli -> query($data);
 $count = 0;
 ?>
 
 <?php
-while(list($id,$name,$email,$mes) = mysql_fetch_array($val))
+while( $row = $val -> fetch_array(MYSQLI_ASSOC))
 { $count += 1; ?>
         <tr>
             <td class="red " data-label="id"><?php echo $count; ?></td>
-            <td class="yellow" data-label="name"><?php echo $name; ?></td>
-            <td class="pink" data-label="email"><?php echo $email; ?></td>
-            <td class="blue" data-label="Message"><?php echo $mes; ?></td>
+            <td class="yellow" data-label="name"><?php echo $row['name']; ?></td>
+            <td class="pink" data-label="email"><?php echo $row['email']; ?></td>
+            <td class="blue" data-label="Message"><?php echo $row['message']; ?></td>
 
         </tr>
         

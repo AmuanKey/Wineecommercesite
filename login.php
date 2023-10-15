@@ -7,8 +7,8 @@ $ln = $_POST['username'];
 $lp = $_POST['password'];
 
 $lquery = "SELECT * FROM registerlist WHERE name ='$ln' ";
-$ldata = mysql_query($lquery);
-$lrow = mysql_fetch_array($ldata);
+$ldata = $mysqli -> query($lquery);
+$lrow = $ldata -> fetch_array(MYSQLI_ASSOC);
 
 if($ln == $lrow['name'] && $lp == $lrow['password'] ){
     $_SESSION['login'] = $ln;
@@ -33,7 +33,7 @@ else{ ?>
     <div class="layer"></div>
     <div class="bg-transparent border border-light rounded text-center p-3 animate_animated animate__rotateIn ">
 
-        <h2 ><font color="crimson" > Password Incorrect </font></h2>
+        <h2 ><font color="crimson" > Password Incorrect or Username </font></h2>
         <h3 class="text-success animate__zoomInUp">Please <a href="home.php" class="text-info">Try again</a>  Or</h3>
         <h3 class='animate_animated animate__fadeInUpBig'><font color="#963CA8"><a href="register.php" class=" fs-3">Register</a> New Account?</font></h3>
         

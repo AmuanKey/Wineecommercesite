@@ -5,8 +5,8 @@ include('../config/config.php');
 $id = $_REQUEST['id'];
 
 $query = "SELECT * FROM productupload where p_id = '$id' ";
-$result = mysql_query($query);
-$arr = mysql_fetch_array($result);
+$result = $mysqli -> query($query);
+$arr = $result -> fetch_array(MYSQLI_ASSOC);
 $oldImg = $arr['images'];
 
 $n = $_POST['name'];
@@ -19,7 +19,7 @@ $img = $_FILES['img']['name'];
   if(isset($_POST['btn'])){
     unlink("uploadedImages/$oldImg");
     move_uploaded_file($_FILES['img']['tmp_name'],"uploadedImages/".$_FILES['img']['name']);
-    mysql_query($data);
+    $mysqli -> query($data);
     header('location:productview.php');
 
   }

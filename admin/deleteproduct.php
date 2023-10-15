@@ -4,8 +4,8 @@ include('../config/config.php');
 $id = $_REQUEST['id'];
 
 $data = "SELECT * FROM productupload WHERE p_id = '$id'";
-$result = mysql_query($data);
-$arr = mysql_fetch_array($result);
+$result = $mysqli -> query($data);
+$arr =$result -> fetch_array(MYSQLI_ASSOC);
 $oldImg = $arr['images'];
 echo $oldImg;
 unlink("uploadedImages/$oldImg");
@@ -15,7 +15,7 @@ $query = "DELETE  FROM productupload WHERE p_id = '$id' ";
 
 
 
-if(mysql_query($query)){
+if($mysqli -> query($query)){
     echo 'good';
 
 }

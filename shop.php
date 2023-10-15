@@ -1,15 +1,18 @@
 <?php
 error_reporting(1);
-$con=mysql_connect("localhost","root","") or die(mysql_error());
-// select database
-mysql_select_db("wine",$con);
+include('./config/config.php');
+
+include('header.php');
 
 $query = "SELECT * FROM productupload";
 
-$result = mysql_query($query);
+// $result = mysql_query($query);
+if($sresult = $mysqli -> query($query)){
+    $mes = $sresult -> num_rows;
+}
 
 
-include('header.php');
+
 ?>
 
     <link rel="stylesheet" href="CSS/shop.css">
@@ -17,7 +20,7 @@ include('header.php');
 
 
         <div class="box row mx-auto p-0 container rounded">
-        <?php  while ($arr = mysql_fetch_array($result)) {
+        <?php  while ($arr = $sresult -> fetch_array(MYSQLI_ASSOC)) {
     $i = $arr['images'];
 
  ?>
@@ -35,10 +38,11 @@ include('header.php');
                         <a href="order.php?id=<?php echo $arr['p_id']; ?>" class=" w-50 btn btn-outline-light title ">Buy</a>
                           
                         <?php
+
                             $Ldata="SELECT * FROM likes";
-                            $Lquery = mysql_query($Ldata);
+                            $Lquery = $mysqli -> query($Ldata);
                             $Larr = array();
-                            while($Lrow = mysql_fetch_array($Lquery)){
+                            while($Lrow = $Lquery -> fetch_array(MYSQLI_ASSOC)){
                              $Lname = $Lrow['name'];
                              array_push($Larr,$Lname);
                             }
@@ -67,7 +71,10 @@ include('header.php');
 
   
            
-<?php }?>
+<?php }
+
+
+?>
         </div>
 <!-- modal  -->
 

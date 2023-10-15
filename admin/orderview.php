@@ -1,5 +1,6 @@
 <?php
-session_start(1);
+error_reporting(1);
+session_start();
 if($_SESSION['admin']!=1){
     header('location:index.php');
 }else{
@@ -11,7 +12,7 @@ error_reporting(1);
 include('../config/config.php');
 session_start();
 $data = "SELECT * FROM orderlist";
-$result = mysql_query($data);
+$result = $mysqli -> query($data);
 //  if(){
   
 //  }else{
@@ -31,13 +32,12 @@ include('templates/header.php');
       <div class=" row">
        <div class=" col-12   col-md-6 col-lg-4 mx-auto   ">
        <?php
-         include('time.php');
-    
-        while(  $arr = mysql_fetch_array($result)    ){
+        include('time.php');
+        while( $arr = $result -> fetch_array(MYSQLI_ASSOC)){
         $otime= $arr['order_time'];
-    
        ?>
-       <div href="#" class=" my-4  p-3   animate__animated animate__lightSpeedInRight  border border-white rounded   text-light" >
+         
+         <div href="#" class=" my-4  p-3   animate__animated animate__lightSpeedInRight  border border-white rounded   text-light" >
           <span class="position-absolute start-50 top-0 translate-middle badge rounded-pill bg-primary">
                <?php echo "<font color='cyan'>".time_ago($otime)."</font>"; ?>
                <span class="visually-hidden">unread messages</span>
@@ -46,7 +46,7 @@ include('templates/header.php');
           <table class=' w-100'>
             <tr>
               <td class=' w-50'><h4>Order-<?php echo $arr['ol_id']; ?>: &#128073;</h4></td>
-              <td><h4><font color='orange'><?php echo $arr['pname']; ?></font></h4></td>
+              <td><h4><font color='orange'><?php echo $arr['pname'];  ?></font></h4></td>
             </tr>
             <tr>
               <td>Price:&#128073; </td>
@@ -93,24 +93,29 @@ include('templates/header.php');
     
                       
                       
-                      if(mysql_query($query) && mysql_query($data) && mysql_query($qy)){
+                      if($mysqli->query($query) && $mysqli->query($data) && $mysqli->query($qy)){
                         $place = 'success';
                       }
                       else{
-                        $place = mysql_error();
+                        $place = $mysqli -> error;
                       }
                     }
                       
                       
                 ?>
           <div class='mt-2 '> 
-            <a href="delivered.php?id=<?php echo $arr[ol_id]; ?>" class='btn btn-outline-danger '>Marked Delivered  </a>
-            <span> <font color='red' class='fs-3 text-decoration-underline' ><b> <?php echo $arr[status]; ?></b></font>
-              <font  class='<?php echo $arr[sty]; ?> '> <?php echo $arr[ticks]; ?>  </font>
+            <a href="delivered.php?id=<?php echo $arr['ol_id']; ?>" class='btn btn-outline-danger '>Marked Delivered  </a>
+            <span> <font color='red' class='fs-3 text-decoration-underline' ><b> <?php echo $arr['status']; ?></b></font>
+              <font  class='<?php echo $arr['sty']; ?> '> <?php echo $arr['ticks']; ?>  </font>
             </span>
           </div>
         
       </div>
+        
+    
+       
+    
+
       <?php } ?>
     </div>
           

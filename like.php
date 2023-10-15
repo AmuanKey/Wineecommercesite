@@ -16,11 +16,11 @@ $likequery="UPDATE productupload SET likes = '-fill' WHERE images = '$img'";
 
 $likeinsert ="INSERT INTO `wine`.`likes` ( `pname`,`name` ) VALUES ( '$img','$name')";
 
-if(mysql_query($likequery) && mysql_query($likeinsert) ){
+if($mysqli -> query($likequery) && $mysqli -> query($likeinsert) ){
   echo 'success';
     header("location:shop.php?like=1");
 }else{
-    echo mysql_error();
+    echo $mysqli -> error;
 }
 
 }

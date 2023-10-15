@@ -7,7 +7,7 @@ $email = $_POST['email'];
 $pw = $_POST['password'];
 
 if(isset($_POST['submit'])){
-    $query = "INSERT INTO `wine`.`registerlist` (
+    $query = "INSERT INTO `registerlist` (
         `p_id` ,
         `name` ,
         `email` ,
@@ -16,11 +16,11 @@ if(isset($_POST['submit'])){
         VALUES ( NULL , '$n', '$email', '$pw' );
     ";
     
-    if(mysql_query($query)){
+    if( $mysqli -> query($query)){
         $_SESSION['login'] = $n;
         header('location:home.php');
     }else{
-         $mes=mysql_error();
+         $mes=$mysqli -> error;
     }
 }
 

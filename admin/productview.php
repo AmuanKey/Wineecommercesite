@@ -1,5 +1,6 @@
 <?php
-session_start(1);
+error_reporting(1);
+session_start();
 if($_SESSION['admin']!=1){
     header('location:index.php');
 }else{
@@ -12,7 +13,7 @@ include('../config/config.php');
 
 $query = "SELECT * FROM productupload";
 
-$result = mysql_query($query);
+$result = $mysqli -> query($query);
 
 
 
@@ -26,7 +27,7 @@ $result = mysql_query($query);
 
   <h2 class="text-light text-center font animate__animated animate__zoomIn"><font color='#AA77FF'>Your Products</font></h2>
 <div class="container ">
-<?php  while ($arr = mysql_fetch_array($result)) {
+<?php  while ($arr = $result -> fetch_array(MYSQLI_ASSOC)) {
     $i = $arr['images'];
    $id = $arr['p_id'];
 

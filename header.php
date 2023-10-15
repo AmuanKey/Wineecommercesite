@@ -11,8 +11,18 @@ include('./config/config.php');
 $login = $_SESSION['login'];
 
 $hquery = "SELECT * FROM registerlist WHERE name ='$login' ";
-$hdata = mysql_query($hquery);
-$hrow = mysql_fetch_array($hdata);
+
+if ($result = $mysqli -> query($hquery)) {
+  // echo "Returned rows are: " . $result -> num_rows;
+  $hrow = $result -> fetch_array(MYSQLI_ASSOC);
+// printf ("%s (%s)\n", $hrow["name"], "");
+  
+}else{
+  echo "error".$mysqli -> error;
+}
+
+// $hdata = mysql_query($hquery);
+// $hrow = mysql_fetch_array($hdata);
 
 // $mes = print_r($hrow);
  

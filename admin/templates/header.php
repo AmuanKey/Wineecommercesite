@@ -19,24 +19,28 @@
   <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
+  
 
 <!-- some phps  -->
 <?php
 error_reporting(1);
-$host="localhost";
-$user="root";
-$pass="";
-//connection
-$con=mysql_connect($host,$user,$pass) or die(mysql_error());
-//db selection
-mysql_select_db("wine",$con);
+// $host="localhost";
+// $user="root";
+// $pass="";
+// //connection
+// $con=mysql_connect($host,$user,$pass) or die(mysql_error());
+// //db selection
+// mysql_select_db("wine",$con);
+
+ include('../../config/config.php');
 ?>
 <!-- php for Order  -->
+
 <?php 
 $ocount = 0;
 $odata = "SELECT * FROM orderlist";
-$oresult = mysql_query($odata);
-while($orow = mysql_fetch_array($oresult)){
+$oresult = $mysqli -> query($odata);
+while($orow = $oresult -> fetch_array(MYSQLI_ASSOC)){
   $ocount += 1;
 }
 ?>
@@ -48,8 +52,8 @@ while($orow = mysql_fetch_array($oresult)){
 <?php
 $fcount = 0;
 $data="SELECT * FROM feedback";
-$val=mysql_query($data);
-while($frow = mysql_fetch_array($val)){
+$val=$mysqli -> query($data);
+while($frow = $val -> fetch_array(MYSQLI_ASSOC)){
   $fcount +=1;
 }
 ?>

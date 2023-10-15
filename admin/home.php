@@ -1,5 +1,6 @@
 <?php
-session_start(1);
+error_reporting(1);
+session_start();
 if($_SESSION['admin']!=1){
     header('location:index.php');
 }else{
@@ -14,8 +15,11 @@ if($_SESSION['admin']!=1){
     <?php
     $arr = array();
     $data="SELECT * FROM orderlist";
-    $products = mysql_query($data);
-    while($row = mysql_fetch_array($products)){
+    $products = $mysqli -> query($data);
+  
+
+
+    while($row = $products -> fetch_array(MYSQLI_ASSOC)){
         $db = $row['pname'];
         array_push($arr, $db);
         }
@@ -26,21 +30,21 @@ if($_SESSION['admin']!=1){
 
     $most_ordered_item ="SELECT * FROM orderlist WHERE pname = '$most_oitem'";
 
-    $m_p = mysql_query($most_ordered_item);
+    $m_p = $mysqli -> query($most_ordered_item);
 
-    $newsqy = mysql_query($most_ordered_item);
-    $nrow = mysql_fetch_array($newsqy);
+    $newsqy =$mysqli -> query($most_ordered_item);
+    $nrow = $newsqy -> fetch_array(MYSQLI_ASSOC);
     
 
 
     $rdata="SELECT * FROM registerlist";
-    $rquery = mysql_query($rdata);
+    $rquery = $mysqli -> query($rdata);
 
 
     $Ldata="SELECT * FROM likes";
-    $Lquery = mysql_query($Ldata);
+    $Lquery = $mysqli -> query($Ldata);
     $Larr = array();
-    while($Lrow = mysql_fetch_array($Lquery)){
+    while($Lrow = $Lquery -> fetch_array(MYSQLI_ASSOC)){
      $Lname = $Lrow['name'];
      array_push($Larr,$Lname);
     }
@@ -49,8 +53,8 @@ if($_SESSION['admin']!=1){
     $MLname = array_keys($Lcount,$Lmax);
     $favProduct = $MLname[0];
     $MLquery ="SELECT * FROM likes WHERE name = '$favProduct'";
-    $MLdata = mysql_query($MLquery);
-    $MLrow = mysql_fetch_array($MLdata);
+    $MLdata = $mysqli -> query($MLquery);
+    $MLrow = $MLdata -> fetch_array(MYSQLI_ASSOC);
     
 
 
@@ -79,7 +83,7 @@ if($_SESSION['admin']!=1){
                 <div class="collapse  " id="collapseExample">
                     <div class="card bg-dark border border-light card-body">
                     <table class='text-center'>
-                        <?php while($rrow = mysql_fetch_array($rquery)){?>
+                        <?php while($rrow = $rquery -> fetch_array(MYSQLI_ASSOC)){?>
                         <tr>
                             <th>  <a href='#' title='See Profile'> <?php echo $rrow['name']; ?> </a></th>
                             
@@ -124,7 +128,7 @@ if($_SESSION['admin']!=1){
     
                 <div class="collapse w-75 mx-auto " id="customer">
                     <div class="card bg-dark border border-light card-body">
-                        <?php while($m_r = mysql_fetch_array($m_p)){  ?>
+                        <?php while($m_r = $m_p -> fetch_array(MYSQLI_ASSOC)){  ?>
                     <div class='text-center'>
                     <?php echo $m_r['cusname'];  ?>
                     </div>

@@ -4,19 +4,20 @@ include('./config/config.php');
 $name = $_POST['name'];
 $email = $_POST['email'];
 $mes = $_POST['message'];
+include('header.php');
+
 
 $query = "INSERT INTO feedback(name,email,message) VALUES ('$name','$email','$mes')";
 if ($name == "" || $email == "" || $mes == "") {
     $alert = "<div class='alert  mx-auto mt-2 title'><font  color='orange'><center> Write Your Message Please. <span class='fa-solid fa-x x' style='color: #fff000; cursor:pointer;  '></span>  </center>  </font> </div>";
 }else{
-    if(mysql_query($query)){
+    if($mysqli -> query($query)){
         $alert = "<div class='alert  mx-auto mt-2 title'><font  color='lightgreen'><center> Your Message is sent Successfully. <span class='fa-solid fa-x x' style='color: #fff000; cursor:pointer;  '></span>  </center>  </font> </div>";
     }else{
         $alert = "<font color='white'><center>error</center></font>";
     }
 }
 
-include('header.php');
 ?> 
 <link rel="stylesheet" href="./CSS/contact.css" />
  <div class="container  row mx-auto mb-3 ">
