@@ -6,6 +6,10 @@
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ## This is a Responsive e commerce site with PHP with Client and Admin pannels 
 
+### Main branch(PHP 8) , Master branch(PHP 5)
+* On the main branch , it is written in mysqli**
+* On the master branch, it is in mysql so it is abit low in version**
+
 ### Features
 **(User Demo)**
 
